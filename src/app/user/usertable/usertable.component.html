@@ -1,0 +1,24 @@
+<table class="table">
+    <thead>
+        <tr style="background-color: gray;">
+            <td>name</td>
+            <td>companyName</td>
+            <td>designation</td>
+        </tr>
+    </thead>
+            <tr>
+                <td><input type="text" [(ngModel)]="searchName" name="searchName" placeholder="search" class="form-control"></td>
+                <td><input type="text" [(ngModel)]="searchCompany" name="searchCompany" placeholder="search" class="form-control"></td>
+                <td><input type="text" [(ngModel)]="searchDesignation" name="searchDesignation" placeholder="search" class="form-control">
+                </td>
+            </tr>
+ 
+
+    <tbody>
+        <tr *ngFor="let data of data | name:searchName | company:searchCompany |designation:searchDesignation " [ngClass]="{'green' : data.company.designation=='angular Developer'}">
+            <td>{{data.name}}</td>
+            <td>{{data.company.name}}</td>
+            <td>{{data.company.designation}}</td>
+        </tr>
+    </tbody>
+</table>
